@@ -7,18 +7,51 @@
     display: flex;
     align-items: center;
     font-family: 'Josefin Sans', sans-serif;
+    z-index: 999;
 }
 
 .topLeft,.topRight{
     flex: 3;
-   
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  
+}
+.topCenter{
+    flex: 6;
+}
+
+.topIcon{
+    font-size: 20px;
+    cursor: pointer;
+    color: #444;
+    margin-right: 10px;
 }
 
 .topImg{
     width: 40px;
     height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.topCenter{
-    flex: 6;
+.topList{
+    display: flex;
+    justify-content: center;
+    margin: 0;padding: 0;
+    list-style: none;
+}
+
+.topItemList{
+    font-size: 18;
+    cursor: pointer;
+    margin-right: 20px;
+    font-weight: 400;
+}
+
+.topSearchIcon{
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+    margin-left: 15px;
 }
