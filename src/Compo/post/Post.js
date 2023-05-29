@@ -1,27 +1,31 @@
+
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './post.css'
 
-function Post() {
+function Post({posts}) {
   return (
     <div className='post'>
-      <img 
+      {posts.photo &&(
+        <img 
       className='postImg'
-      src='https://st.hzcdn.com/simgs/49c1daf60e9c6021_4-4134/contemporary-exterior.jpg' alt='error'/>
+      src={posts.photo} alt='error'/>
+      )}
 
       <div className='postInfo'>
         <div className='postCats'>
-            <span className='postCat'>Music</span>
-            <span className='postCat'>Life</span>
+          {posts.categories.map((c)=>(
+            <span className='postCat'>{c.name}</span>
+          ))}
+           
         </div>
-        <span className='postTitle'>Melodies of the Frozen North: A Musical Journey in the Cold</span>
+        <Link to={`/post/${posts._id}`} className='link' >
+        <span className='postTitle'>{posts.title}</span>
+        </Link>
         <hr/>
-        <span className='postDate'>1 hour ago</span>
+        <span className='postDate'>{(posts.createdAt)}</span>
       </div>
-      <p className='postDisc'>In the enchanting land of the Frozen North, music holds a unique power to unite hearts and thaw frozen landscapes. Follow the protagonist, a talented young musician named Lily, as she embarks on a captivating adventure in this wintry realm. Along her journey, Lily discovers a secret music code that has the ability to control the elements and shape the destiny of the region. As she encounters mythical creatures, encounters challenges, and explores breathtaking ice caverns, Lily must harness the power of her melodies to restore harmony to the frozen land and unlock the true potential of her musical abilities. Prepare to be enchanted by the ethereal melodies and witness the transformative power of music in this enchanting tale set in the cold embrace of the Frozen North.
-
-
-
-
+      <p className='postDisc'>{posts.desc}
 </p>
     </div>
   )
