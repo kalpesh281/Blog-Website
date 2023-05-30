@@ -12,9 +12,11 @@ const Reducer=(state,action)=>{
             return{
                 user:action.payload,
                 isFetching:false,
-                error:false
+                error:false,
+
+                
             };
-            
+                
         
         case "LOGIN_FAILURE":
             return{

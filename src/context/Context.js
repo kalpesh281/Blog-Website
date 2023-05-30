@@ -5,8 +5,7 @@ import Reducer from "./Reducer";
 
 const INTIAL_STATE = {
 
-    user:localStorage.getItem("user"),
-
+    user:JSON.parse(localStorage.getItem("user")),
     isFetching: false,
     error: false,
    
@@ -22,6 +21,7 @@ export const ContextProvider = ({ children }) => {
 
     useEffect(()=>{
         localStorage.setItem("user",JSON.stringify( state.user))
+        
     },[state.user])
  
     return (

@@ -17,8 +17,8 @@ function Login() {
        username : userRef.current.value,
        password : passwordRef.current.value,
       })
-      
-      dispatch({type:"LOGIN_SUCCESS",playload:res.data})
+      dispatch({type:"LOGIN_SUCCESS",payload:res.data})
+      // console.log(res)
     } catch (err) {
       dispatch({type:"LOGIN_FAILURE"})
     }
