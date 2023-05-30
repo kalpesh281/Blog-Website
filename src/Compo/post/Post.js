@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom'
 import './post.css'
 
 function Post({posts}) {
+const PF="http://localhost:5000/images/"
+
   return (
     <div className='post'>
       {posts.photo &&(
         <img 
       className='postImg'
-      src={posts.photo} alt='error'/>
+      src={PF + posts.photo} alt='error'/>
       )}
 
       <div className='postInfo'>

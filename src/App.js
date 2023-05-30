@@ -7,12 +7,14 @@ import Home from './pages/Home';
 import Single from './pages/Single/Single';
 import Write from './pages/write/Write';
 import { BrowserRouter as Router,Route, Routes } from 'react-router-dom';
+import { useContext } from 'react';
+import { Context } from './context/Context';
 
 
 
 
 function App() {
-  const user=false
+  const {user}=useContext(Context)
   return (
     <>
        
