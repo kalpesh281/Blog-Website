@@ -25,7 +25,7 @@ function SideBar() {
       <ul className='sidebarList'>
       {cats.map((c)=>(
         <Link className='link' to={`?/cat=${c.name}`}>
-        <li className='sidebarListItem'>{c.name}</li>
+        <li className='sidebarListItem' style={{fontSize:"16px",fontWeight:"600"}}>{c.name}</li>
         </Link>
       ))}
      
