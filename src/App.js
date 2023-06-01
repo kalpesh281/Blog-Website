@@ -9,6 +9,7 @@ import Write from './pages/write/Write';
 import { BrowserRouter as Router,Route, Routes } from 'react-router-dom';
 import { useContext } from 'react';
 import { Context } from './context/Context';
+import About from './pages/About';
 
 
 
@@ -25,6 +26,7 @@ function App() {
     <Route path='/register' exact element={user?<Login/>:<Register/>}/>
     <Route path='/login' exact element={user?<Home/>:<Login/>}/>
     <Route path='/write' exact element={user?<Write/>:<Login/>}/>
+    <Route path='about' exact element={<About/>} />
     <Route path='/settings' exact element={user?<Settings/>:<Login/>}/>
     <Route path='/post/:postId' exact element={<Single/>}/>
     
