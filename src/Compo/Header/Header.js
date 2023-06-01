@@ -8,7 +8,7 @@ function Header() {
             <span className='headerTitleSm'>Blog</span>
             <span className='headerTitleLg'>Website</span>
         </div>
-        <img className='headerImg' src='https://webneel.com/daily/sites/default/files/images/daily/08-2018/1-nature-photography-spring-season-mumtazshamsee.jpg' alt='error'/>
+        <img className='headerImg' src='https://images.hdqwalls.com/download/lake-ultra-hd-4k-7f-3840x2160.jpg' alt='error'/>
     </div>
   )
 }
