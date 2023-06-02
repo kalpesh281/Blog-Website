@@ -12,8 +12,8 @@ function Register() {
     e.preventDefault();
     setError(false)
     try {
-      // const res=await axios.post("http://localhost:5000/api/auth/register",{
-        const res=await axios.post("https://blog-app-backend-vuwf.onrender.com/register",{
+      const res=await axios.post("http://localhost:5000/api/auth/register",{
+        // const res=await axios.post("https://blog-app-backend-vuwf.onrender.com/register",{
        username,email,password
     });
     res.data && window.location.replace("/login");
