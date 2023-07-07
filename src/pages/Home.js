@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './Home.css'
 import Header from '../Compo/Header/Header'
 import Posts from '../Compo/posts/Posts'
@@ -9,27 +9,27 @@ import { useLocation } from 'react-router-dom'
 
 
 function Home() {
-  const[posts,setPosts]=useState([]);
-  const{search}=useLocation()
-  useEffect(()=>{
-    const fetchPosts= async ()=>{
-      const res=await axios.get("http://localhost:5000/api/posts"+search)
+  const [posts, setPosts] = useState([]);
+  const { search } = useLocation()
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const res = await axios.get("https://blog-backend-btcn.onrender.com/api/posts" + search)
       setPosts(res.data)
-      
+
     }
     fetchPosts()
-  },[search])
+  }, [search])
 
   return (
     <>
-    
-    <Header/>
-    <div className='home'>
-   
-    <Posts posts={posts} />
-    <SideBar/>
-    
-    </div>
+
+      <Header />
+      <div className='home'>
+
+        <Posts posts={posts} />
+        <SideBar />
+
+      </div>
     </>
   )
 }

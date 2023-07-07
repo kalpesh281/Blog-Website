@@ -6,17 +6,17 @@ import { Link } from 'react-router-dom'
 import { Context } from '../../context/Context';
 
 function SinglePost() {
-    const PF = "http://localhost:5000/images/"
+    const PF = "https://blog-backend-btcn.onrender.com/images/"
     const location = useLocation()
     const path = location.pathname.split("/")[2];
     const [post, setPost] = useState({})
     const { user } = useContext(Context)
-    const[title,setTitle]=useState("")
-    const[desc,setDesc]=useState("")
-    const[updateMode,setUpdateMode]=useState(false)
+    const [title, setTitle] = useState("")
+    const [desc, setDesc] = useState("")
+    const [updateMode, setUpdateMode] = useState(false)
     useEffect(() => {
         const getPosts = async () => {
-            const res = await axios.get("http://localhost:5000/api/posts/" + path);
+            const res = await axios.get("https://blog-backend-btcn.onrender.com/api/posts/" + path);
             setPost(res.data)
             setTitle(res.data.title)
             setDesc(res.data.desc)
@@ -25,24 +25,24 @@ function SinglePost() {
     }, [path])
     const handleDelete = async () => {
         try {
-          await axios.delete("http://localhost:5000/api/posts/"+post._id, {
-            data: { username: user.username },
-          });
-          window.location.replace("/");
-        } catch (err) {}
-      };
+            await axios.delete("https://blog-backend-btcn.onrender.com/api/posts/" + post._id, {
+                data: { username: user.username },
+            });
+            window.location.replace("/");
+        } catch (err) { }
+    };
 
 
-      const handleUpdate= async()=>{
+    const handleUpdate = async () => {
         try {
-            await axios.put("http://localhost:5000/api/posts/"+post._id, {
-               username: user.username,
-               title,
-               desc
+            await axios.put("https://blog-backend-btcn.onrender.com/api/posts/" + post._id, {
+                username: user.username,
+                title,
+                desc
             });
             window.location.reload();
-          } catch (err) {}
-      }
+        } catch (err) { }
+    }
     // console.log(post.user)
     return (
         <div className='singlePost'>
@@ -52,20 +52,20 @@ function SinglePost() {
                 )}
                 {
                     updateMode ? <input type="text" value={title} className='singlePostTitleInput'
-                    autoFocus
-                    onChange={(e)=>setTitle(e.target.value)}
-                     /> :(
+                        autoFocus
+                        onChange={(e) => setTitle(e.target.value)}
+                    /> : (
 
-                <h1 className='singlePostTitle'>
-                    {post.title}
-                    {post.username ===user?.username && (
-                    <div className='singlePostEdit'>
-                        <i className="singlePostIcon fa-solid fa-pen-to-square" onClick={()=>setUpdateMode(true)}></i>
-                        <i className="singlePostIcon fa-solid fa-trash" onClick={handleDelete} ></i>
-                    </div>
+                        <h1 className='singlePostTitle'>
+                            {post.title}
+                            {post.username === user?.username && (
+                                <div className='singlePostEdit'>
+                                    <i className="singlePostIcon fa-solid fa-pen-to-square" onClick={() => setUpdateMode(true)}></i>
+                                    <i className="singlePostIcon fa-solid fa-trash" onClick={handleDelete} ></i>
+                                </div>
+                            )}
+                        </h1>
                     )}
-                </h1>
-                )}
                 <div className='singlePostInfo'>
                     <span className='singlePostAuthor'>Author :
                         <Link to={`/?user=${post.username}`} className='link'>
@@ -75,11 +75,11 @@ function SinglePost() {
                     </span>
                     <span className='singlePostDate'>{(post.createdAt)}</span>
                 </div>
-                {updateMode? <textarea className='singlePostDicInput' value={desc} onChange={(e)=>setDesc(e.target.value)} /> :(
-                <p className='singlePostDic'>{post.desc}</p>
+                {updateMode ? <textarea className='singlePostDicInput' value={desc} onChange={(e) => setDesc(e.target.value)} /> : (
+                    <p className='singlePostDic'>{post.desc}</p>
                 )}
                 {updateMode && (
-                <button className='singlePostButton' onClick={handleUpdate}>Update</button>
+                    <button className='singlePostButton' onClick={handleUpdate}>Update</button>
                 )}
             </div>
         </div>
