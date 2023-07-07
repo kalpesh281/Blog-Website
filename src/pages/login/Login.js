@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" })
     try {
-      const res = await axios.post("https://blog-backend-btcn.onrender.com/api/auth/login", {
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
         // const res=await axios.post("https://blog-app-backend-vuwf.onrender.com/login", {
         username: userRef.current.value,
         password: passwordRef.current.value,

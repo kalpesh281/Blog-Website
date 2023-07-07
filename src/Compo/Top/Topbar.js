@@ -5,7 +5,7 @@ import { Context } from '../../context/Context'
 
 
 function Topbar() {
-  const PF = "https://blog-backend-btcn.onrender.com/images/"
+  const PF = "http://localhost:5000/images/"
   const { user, dispatch } = useContext(Context)
 
   const handleLogout = () => {
@@ -14,10 +14,16 @@ function Topbar() {
   return (
     <div className='top'>
       <div className='topLeft'>
-        <i className="topIcon fa-brands fa-square-facebook"></i>
-        <i className="topIcon fa-brands fa-square-twitter"></i>
-        <i className="topIcon fa-brands fa-square-pinterest"></i>
-        <i className="topIcon fa-brands fa-square-instagram"></i>
+        <a href="https://www.facebook.com/NewNatureWriters/" target="_blank" rel="noopener noreferrer"><i className="topIcon fa-brands fa-square-facebook"> </i></a>
+
+        <a href="https://www.instagram.com/nature.writers/?hl=en" target="_blank" rel="noopener noreferrer">
+          <i className="topIcon fa-brands fa-square-instagram"></i>
+        </a>
+        <a href="https://twitter.com/DrS_ayesha" target="_blank" rel="noopener noreferrer"><i className="topIcon fa-brands fa-square-twitter"></i></a>
+
+        <a href="https://in.pinterest.com/chandorejayshri/" target="_blank" rel="noopener noreferrer">  <i className="topIcon fa-brands fa-square-pinterest"></i></a>
+
+
       </div>
       <div className='topCenter'>
         <ul className='topList'>

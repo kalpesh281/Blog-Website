@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { Context } from '../../context/Context';
 
 function SinglePost() {
-    const PF = "https://blog-backend-btcn.onrender.com/images/"
+    const PF = "http://localhost:5000/images/"
     const location = useLocation()
     const path = location.pathname.split("/")[2];
     const [post, setPost] = useState({})
@@ -16,7 +16,7 @@ function SinglePost() {
     const [updateMode, setUpdateMode] = useState(false)
     useEffect(() => {
         const getPosts = async () => {
-            const res = await axios.get("https://blog-backend-btcn.onrender.com/api/posts/" + path);
+            const res = await axios.get("http://localhost:5000/api/posts/" + path);
             setPost(res.data)
             setTitle(res.data.title)
             setDesc(res.data.desc)
@@ -25,7 +25,7 @@ function SinglePost() {
     }, [path])
     const handleDelete = async () => {
         try {
-            await axios.delete("https://blog-backend-btcn.onrender.com/api/posts/" + post._id, {
+            await axios.delete("http://localhost:5000/api/posts/" + post._id, {
                 data: { username: user.username },
             });
             window.location.replace("/");
@@ -35,7 +35,7 @@ function SinglePost() {
 
     const handleUpdate = async () => {
         try {
-            await axios.put("https://blog-backend-btcn.onrender.com/api/posts/" + post._id, {
+            await axios.put("http://localhost:5000/api/posts/" + post._id, {
                 username: user.username,
                 title,
                 desc

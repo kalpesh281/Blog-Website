@@ -4,7 +4,7 @@ import SideBar from '../../Compo/sidebar/SideBar'
 import { Context } from '../../context/Context'
 import axios from 'axios'
 function Settings() {
-  const PF = "https://blog-backend-btcn.onrender.com/images/"
+  const PF = "http://localhost:5000/images/"
   const { user, dispatch } = useContext(Context)
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState("")
@@ -29,12 +29,12 @@ function Settings() {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post("https://blog-backend-btcn.onrender.com/api/upload", data);
+        await axios.post("http://localhost:5000/api/upload", data);
       } catch (error) {
 
       }
     }; try {
-      const res = await axios.put("https://blog-backend-btcn.onrender.com/api/users/" + user._id, updatedUser)
+      const res = await axios.put("http://localhost:5000/api/users/" + user._id, updatedUser)
       setSuccess(true)
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data })
     } catch (error) {
@@ -49,7 +49,7 @@ function Settings() {
       <div className='settingsWrapper'>
         <div className='settingsTitle'>
           <span className='settingsUpdateTitle'>Update Your Account</span>
-          <span className='settingsDeleteTitle'>Delete Account</span>
+
         </div>
         <form className='settingsForm' onSubmit={handlesubmit}>
           <label >Profile Picture</label>

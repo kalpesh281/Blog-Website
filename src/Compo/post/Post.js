@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './post.css'
 
 function Post({ posts }) {
-  const PF = "https://blog-backend-btcn.onrender.com/images/"
+  const PF = "http://localhost:5000/images/"
 
   return (
     <div className='post'>
